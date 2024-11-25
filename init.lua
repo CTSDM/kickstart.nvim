@@ -81,9 +81,12 @@ If you experience any errors while trying to install kickstart, run `:checkhealt
 I hope you enjoy your Neovim journey,
 - TJ
 
+
 P.S. You can delete this when you're done too. It's your config now! :)
 --]]
 --
+-- Applying html settings to ejs files
+vim.cmd 'autocmd BufNewFile,BufRead *.ejs set filetype=html'
 -- Change of tabs
 vim.opt.tabstop = 4
 vim.opt.softtabstop = 4
@@ -773,6 +776,8 @@ require('lazy').setup({
       local ensure_installed = vim.tbl_keys(servers or {})
       vim.list_extend(ensure_installed, {
         'stylua', -- Used to format Lua code
+        'prettier',
+        'prismals',
       })
       require('mason-tool-installer').setup { ensure_installed = ensure_installed }
 
@@ -942,11 +947,20 @@ require('lazy').setup({
             -- set group index to 0 to skip loading LuaLS completions as lazydev recommends it
             group_index = 0,
           },
+          { name = 'nvim_lsp_signature_help' },
           { name = 'nvim_lsp' },
           { name = 'luasnip' },
           { name = 'path' },
         },
       }
+
+      -- setup vim-dadbod - copied from TJ
+      cmp.setup.filetype({ 'sql' }, {
+        sources = {
+          { name = 'vim-dadbod-completion' },
+          { name = 'buffer' },
+        },
+      })
     end,
   },
 
