@@ -882,6 +882,8 @@ require('lazy').setup({
       local luasnip = require 'luasnip'
       luasnip.config.setup {}
 
+      luasnip.filetype_extend('javascriptreact', { 'html' })
+
       cmp.setup {
         snippet = {
           expand = function(args)
@@ -949,9 +951,9 @@ require('lazy').setup({
             group_index = 0,
           },
           { name = 'nvim_lsp' },
-          { name = 'nvim_lsp_signature_help' },
           { name = 'luasnip' },
           { name = 'path' },
+          { name = 'nvim_lsp_signature_help' },
         },
       }
     end,
