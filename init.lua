@@ -110,6 +110,8 @@ vim.o.guicursor = table.concat({
   'i:block-Cursor/lCursor-blinkoff0',
 }, ',')
 
+-- using CapsLock for Escape
+
 -- Set to true if you have a Nerd Font installed and selected in the terminal
 vim.g.have_nerd_font = true
 
