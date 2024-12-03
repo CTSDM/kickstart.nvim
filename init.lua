@@ -110,6 +110,9 @@ vim.o.guicursor = table.concat({
   'i:block-Cursor/lCursor-blinkoff0',
 }, ',')
 
+-- modifying conceal level to have obsidian UI features
+vim.opt.conceallevel = 1
+
 -- using CapsLock for Escape
 
 -- Set to true if you have a Nerd Font installed and selected in the terminal
