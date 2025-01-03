@@ -111,7 +111,12 @@ vim.o.guicursor = table.concat({
 }, ',')
 
 -- modifying conceal level to have obsidian UI features
-vim.opt.conceallevel = 1
+vim.api.nvim_create_autocmd('FileType', {
+  pattern = 'markdown',
+  callback = function()
+    vim.opt_local.conceallevel = 1
+  end,
+})
 
 -- using CapsLock for Escape
 
